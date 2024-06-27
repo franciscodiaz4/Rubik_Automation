@@ -1,0 +1,28 @@
+{
+  "name": "rubik-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "single": "nightwatch --test ./test_suite/ --tag freeNimNewAccount --env browserstack.firefox",
+    "singlePercy": "npx percy exec -- nightwatch --test ./test_suite/ --tag landing --env browserstack.firefox"
+
+    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@percy/cli": "^1.28.8",
+    "@percy/nightwatch": "^2.2.0",
+    "chromedriver": "^126.0.4",
+    "geckodriver": "^4.4.1",
+    "nightwatch": "^3.6.3"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "dotenv": "^16.4.5",
+    "nightwatch-testrail-updater": "^1.0.5"
+  }
+}
