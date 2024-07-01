@@ -3,3 +3,4 @@ logs
 tests_output
 tests
 .env
+allure-results

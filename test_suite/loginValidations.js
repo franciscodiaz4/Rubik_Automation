@@ -14,8 +14,6 @@ module.exports = {
         //browser.end();
     },
 
-//Scenario: Login to Wallet
-
     'Login - Blank password': (browser) => {
         browser.testId = "";
 
@@ -70,6 +68,20 @@ module.exports = {
             browser.assert.urlContains("https://app-stg.rubiktest.com/")
     },
 
+    'Login - Incorrect Username': (browser) => {
+        browser.testId = "";
+
+        browser.url('https://app-stg.rubiktest.com/auth/login')
+        browser.page.main_objects()
+            .pause(1000)
+            .updateValue("@usernameField", faker.internet.exampleEmail())
+            .updateValue("@passwordField", process.env.STAGING_PASSWORD)
+            .click("@loginButton")
+            .pause(2000)
+            .waitForElementVisible('@loginFormError', 40000)
+            .expect.element("@loginFormError").text.to.contain("Email or password invalid")
+    },
+
     'Login - Successful login': (browser) => {
         browser.testId = "";
 
@@ -84,7 +96,5 @@ module.exports = {
             .expect.element("@notification").text.to.contain("Login Successful, Redirecting...")
             browser.assert.urlContains("https://app-stg.rubiktest.com/admin")
     },
-
-
 
 }
