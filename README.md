@@ -1,6 +1,10 @@
 # Rubik_Automation
 
 
+Allure
+
+allure generate ./allure-results --clean && allure open
+
 # API commands list
 
 .beforeEach
