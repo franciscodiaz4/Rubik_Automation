@@ -42,7 +42,7 @@ jobs:
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-          STAGING_PASSWORD: ${{ secrets.TESTNET_PASSWORD }}
+          STAGING_PASSWORD: ${{ secrets.STAGING_PASSWORD }}
 
         run: |
           npm run loginValidations
