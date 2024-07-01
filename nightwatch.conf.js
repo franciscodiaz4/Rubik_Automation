@@ -20,13 +20,13 @@ module.exports = {
   src_folders: ['test_suite'],
 
   // See https://nightwatchjs.org/guide/concepts/page-object-model.html
-  page_objects_path: ['page-objects'],
+  page_objects_path: ['page_objects'],
 
   // See https://nightwatchjs.org/guide/extending-nightwatch/adding-custom-commands.html
-  custom_commands_path: ['custom-commands'],
+  custom_commands_path: [],
 
   // See https://nightwatchjs.org/guide/extending-nightwatch/adding-custom-assertions.html
-  custom_assertions_path: ['custom-assertions'],
+  custom_assertions_path: [],
 
   // See https://nightwatchjs.org/guide/extending-nightwatch/adding-plugins.html
   plugins: ["@nightwatch/browserstack"],
