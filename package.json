@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "single": "nightwatch --test ./test_suite/ --tag freeNimNewAccount --env browserstack.firefox",
-    "singlePercy": "npx percy exec -- nightwatch --test ./test_suite/ --tag landing --env browserstack.firefox"
+    "single": "nightwatch --test ./test_suite/ --tag login --env browserstack.firefox",
+    "singlePercy": "npx percy exec -- nightwatch --test ./test_suite/ --tag landing --env browserstack.firefox", 
+    "loginValidations": "npx nightwatch ./test_suite --tag loginValidations --env browserstack.chrome"
   },
   "keywords": [],
   "author": "",
