@@ -1,0 +1,66 @@
+name: Login Validations
+
+# Controls when the workflow will run
+on:
+# Triggers the workflow on push or pull request events but only for the "main" branch
+  # uncoment this to run when a pullrequest merge to
+  # to develop, master or testing
+  #push:
+    #branches:
+      #- develop
+      #- master
+      #- testing
+      #- main
+  #pull_request:
+    #branches: [ "main" ]
+  schedule:
+    # runs every day at midnight, UTC time
+     - cron: '0 0 * * 1'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
+jobs:
+# This workflow contains a single job called "run end to end tests"
+  run_e2e_tests:
+  # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+   # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+    # Runs a single command using the runners shell
+      - name: Install dependencies        
+        run: |
+          npm install
+    # Runs a single command using the runners shell
+      - name: Login Validations on Chrome
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          STAGING_PASSWORD: ${{ secrets.TESTNET_PASSWORD }}
+
+        run: |
+          npm run loginValidations
+  slackNotification:
+    needs: run_e2e_tests
+    name: Workflow Status
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      
+      env:
+        SLACK_CHANNEL: general
+        SLACK_COLOR: ${{ job.status }} 
+        SLACK_ICON: https://github.com/rtCamp.png?size=48
+        SLACK_MESSAGE: "Tests result: ${{ job.status }}"
+        SLACK_TITLE: Workflow Status
+        SLACK_USERNAME: Francisco_Diaz
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+      if: always()
