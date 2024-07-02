@@ -41,7 +41,7 @@ module.exports = {
             browser.assert.urlContains("https://app-stg.rubiktest.com/admin/candidates")
     },
 
-    'Candidates Page': (browser) => {
+    'Create Candidate Flow': (browser) => {
         browser.testId = "";
 
         browser.page.main_objects()
