@@ -18,11 +18,18 @@ module.exports = {
 
         //Dashboard
         profileNameSideBar: "h1.mb-2",
-        profileNameHome: "h1.text-4xl",
+        pageTitle: "h1.text-4xl",
 
 
         //Notification 
         notification: ".Toastify__toast-body > div:nth-of-type(2)",
+
+        //Sidebar Navigation
+        testsPage: "a[href='/admin/tests']",
+        assessmentsPage: "a[href='/admin/assessments']",
+        candidatesPage: "a[href='/admin/candidates']",
+        settingsPage: "a[href='/admin/settings']",
+        logoutButton: "div.w-full.items-center.h-10.text-gray-70.rounded-r:nth-of-type(1) > .h-full.items-center.justify-start.w-full.pl-8.transition.ease-in-out > .ml-2",
 
     }
 }
