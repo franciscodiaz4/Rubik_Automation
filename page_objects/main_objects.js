@@ -31,5 +31,18 @@ module.exports = {
         settingsPage: "a[href='/admin/settings']",
         logoutButton: "div.w-full.items-center.h-10.text-gray-70.rounded-r:nth-of-type(1) > .h-full.items-center.justify-start.w-full.pl-8.transition.ease-in-out > .ml-2",
 
+        //Candidates Page
+        createNewCandidateButton: "button[type='button']",
+        candidateNameField: "input[name='name']",
+        jobPositionDrowdown: "select[name='jobPositionId']",
+        jobPositionOption1: "option:nth-child(1)",
+        jobPositionOption2: "option:nth-child(2)",
+        jobPositionOption3: "option:nth-child(3)",
+        jobPositionOption4: "option:nth-child(4)",
+        candidateEmailField: "input[name='email']",
+        candidateProfileUrlField: "input[name='profileURL']",
+        createCandidateButton: "button[type='submit']",
+
+
     }
 }
