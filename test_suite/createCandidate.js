@@ -59,9 +59,9 @@ module.exports = {
             .click("@jobPositionOption2")
             .pause(1000)
             .click("@createCandidateButton")
-            .pause(1000)
-            //.waitForElementVisible('@notification', 40000)
-            //.expect.element("@notification").text.to.contain("Candidate created sucessfully")
+            .pause(500)
+            // .waitForElementVisible('@notification', 40000)
+            // .expect.element("@notification").text.to.contain("Candidate created sucessfully")
             browser.assert.urlContains("https://app-stg.rubiktest.com/admin/candidates")
     },
 
